@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.5.13/dist/vue.global.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ user }}</h1>
+        <p v-if="status">{{ status }}</p>
+        <button @click="handleClick">{{ click }}</button>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    user: "Gian",
+                    status: false,
+                    click: "Click Me"
+                    // function na mag return objects
+                };
+            },
+            methods: {
+                handleClick() {
+                    this.status = !this.status;
+                    this.click = this.status ? "Click Me" : "Clicked!";
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
